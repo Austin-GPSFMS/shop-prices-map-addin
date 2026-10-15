@@ -82,7 +82,14 @@ npm test               # builds the harness and runs tests/e2e.mjs headlessly
 
 Push to `github.com/Austin-GPSFMS/shop-prices-map-addin`, enable GitHub Pages on `main`,
 then install `config.json` in MyGeotab under **Administration → System… → System Settings →
-Add-Ins → New Add-In**. The add-in appears as a **Shop Prices** tab on the Map page.
+Add-Ins → New Add-In**. The add-in appears as a **Shop Prices** tab on the Map page; nothing is
+drawn until that tab is opened the first time (that is when MyGeotab calls the entry function).
+
+`config.json` uses `mapScript.src` + `mapScript.style` (script + stylesheet). `config.url.json`
+is the equivalent manifest using `mapScript.url` → `dist/addin.html` (`public/addin.html` in
+source, copied by Vite), the same shape as Geotab's `html` sample — use whichever your MyGeotab
+build accepts. `title` must be a plain string for map add-ins (not the `{ "en": … }` object that
+page add-ins use for `menuName`).
 
 Then deploy `proxy/` (see `proxy/README.md`) and paste its URL under **Settings** in the panel.
 
@@ -95,6 +102,10 @@ The harness is a faithful-enough stand-in, but a few things can only be confirme
 - **Action-list items** — "Nearest shops by price" on a vehicle's right-click menu and "Shops near here by price" on the map menu. `icon` is left blank; set a MyGeotab icon name there if you want one.
 - **Tooltip** — hover text uses MyGeotab's own tooltip component (`main` / `secondary` / `additional`).
 - **Quota** — the add-in makes no bulk API calls; a vehicle lookup is one `multiCall` of two filtered `Get`s.
+- **Registration** — MyGeotab pre-defines `geotab.addin` as a *read-only* property inside the map iframe. Never
+  assign to it (`geotab.addin = geotab.addin || {}` throws and MyGeotab logs "Add-in can't be installed … Can't be
+  loaded", then removes the tab). `src/main.tsx` only sets its own key; `npm run test:sandbox` loads the built
+  bundle in an iframe with the same read-only property and a stub `service` to catch regressions.
 
 ## Roadmap ideas
 

@@ -36,10 +36,17 @@ export function gpsfmsShopPricesMount(elt: HTMLElement, service: IMapAddInServic
   return () => root.unmount();
 }
 
+/**
+ * Registration. MyGeotab's map iframe pre-defines `geotab.addin` as a
+ * READ-ONLY property, so `geotab.addin = geotab.addin || {}` throws
+ * ("Cannot assign to read only property 'addin'") and MyGeotab then reports
+ * "Add-in can't be installed … Can't be loaded" and removes the tab. Only
+ * ever assign our own key; create the parents solely when they are missing.
+ */
 const w = window as Window;
-w.geotab = w.geotab || {};
-w.geotab.addin = w.geotab.addin || {};
-w.geotab.addin.gpsfmsShopPrices = (elt, service) => {
+const geotab = w.geotab ?? (w.geotab = {});
+const addin = geotab.addin ?? (geotab.addin = {});
+addin.gpsfmsShopPrices = (elt, service) => {
   try {
     gpsfmsShopPricesMount(elt, service);
   } catch (e) {

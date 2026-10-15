@@ -1,7 +1,7 @@
 {
   "name": "shop-prices-map-addin",
-  "version": "1.0.0",
-  "description": "GPSFMS Shop Prices — MyGeotab Map Add-In overlaying repair-shop pricing (from Fleetio invoices) on the live map",
+  "version": "1.0.1",
+  "description": "GPSFMS Shop Prices \u2014 MyGeotab Map Add-In overlaying repair-shop pricing (from Fleetio invoices) on the live map",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,8 @@
     "build:harness": "vite build --config vite.harness.config.ts",
     "preview:harness": "vite preview --config vite.harness.config.ts --port 4173",
     "typecheck": "tsc --noEmit",
-    "test": "npm run build:harness && node tests/e2e.mjs"
+    "test": "npm run build:harness && node tests/e2e.mjs",
+    "test:sandbox": "node tests/sandbox-check.mjs"
   },
   "dependencies": {
     "@geotab/zenith": "^3.9.2",

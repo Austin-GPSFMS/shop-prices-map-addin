@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Alternative Map Add-In entry for config.url.json ("mapScript": { "url": … }).
+      MyGeotab takes the <body> content as the panel UI and loads the linked
+      script/stylesheet; the script registers window.geotab.addin.gpsfmsShopPrices.
+      Absolute URLs on purpose: the iframe has an opaque origin.
+    -->
+    <link rel="stylesheet" href="https://austin-gpsfms.github.io/shop-prices-map-addin/dist/shop-prices.css" />
+    <script src="https://austin-gpsfms.github.io/shop-prices-map-addin/dist/shop-prices.js" async></script>
+  </head>
+  <body>
+    <div class="gsp-host"></div>
+  </body>
+</html>
