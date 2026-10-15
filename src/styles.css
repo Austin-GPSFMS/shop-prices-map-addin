@@ -1,0 +1,359 @@
+/**
+ * Shop Prices Map Add-In styles.
+ *
+ * Zenith ships its design tokens + component styles via @geotab/zenith/dist/index.css;
+ * everything below is panel chrome for the 450px MyGeotab map side panel.
+ * All selectors are prefixed `gsp-` because other Map Add-Ins share the iframe.
+ */
+
+@import "@geotab/zenith/dist/index.css";
+
+.gsp-root {
+  --gsp-navy: #25477b;
+  --gsp-dark: #1c2b39;
+  --gsp-blue: #0084c2;
+  --gsp-blue-soft: #e5f1f8;
+  --gsp-light: #f4f4f4;
+  --gsp-border: #e3e7ec;
+  --gsp-muted: #6b7280;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--gsp-dark);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.gsp-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 14px 20px;
+  box-sizing: border-box;
+  min-height: 100%;
+  font-size: 13px;
+}
+
+.gsp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.gsp-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--gsp-dark);
+}
+.gsp-header p {
+  margin: 2px 0 0;
+  color: var(--gsp-muted);
+  font-size: 12px;
+}
+.gsp-header-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.gsp-muted {
+  color: var(--gsp-muted);
+}
+.gsp-small {
+  font-size: 12px;
+}
+.gsp-footnote {
+  margin: 4px 0 0;
+  font-size: 12px;
+}
+
+.gsp-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.gsp-toolbar-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.gsp-checks {
+  display: flex;
+  gap: 16px;
+}
+.gsp-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.gsp-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.gsp-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid var(--gsp-border);
+  border-radius: 6px;
+  background: #fff;
+  min-width: 0;
+}
+.gsp-kpi-wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.gsp-kpi-warn {
+  border-color: #f3d9a4;
+  background: #fff8e8;
+}
+.gsp-kpi-label {
+  font-size: 11px;
+  color: var(--gsp-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gsp-kpi-sub {
+  font-size: 11px;
+  color: var(--gsp-muted);
+}
+.gsp-tile-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gsp-dark);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.gsp-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.gsp-dot-green {
+  background: #1b8a4c;
+}
+.gsp-dot-red {
+  background: #c8352b;
+}
+
+/* ---- Shop list ---- */
+.gsp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gsp-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.gsp-list-head .zen-dropdown {
+  max-width: 220px;
+}
+.gsp-rows,
+.gsp-rank {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.gsp-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-top: 1px solid var(--gsp-border);
+  cursor: pointer;
+}
+.gsp-row:hover,
+.gsp-row-hover {
+  background: var(--gsp-blue-soft);
+}
+.gsp-band {
+  width: 6px;
+  height: 34px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.gsp-band-lg {
+  height: 44px;
+}
+.gsp-row-main {
+  flex: 1;
+  min-width: 0;
+}
+.gsp-row-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.gsp-row-title strong {
+  font-weight: 600;
+}
+.gsp-row-sub {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gsp-row-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  min-width: 64px;
+}
+.gsp-price {
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.gsp-price-sub {
+  font-size: 11px;
+}
+.gsp-rank-no {
+  width: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--gsp-navy);
+}
+
+.gsp-chip {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: var(--gsp-navy);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.gsp-chip-soft {
+  background: var(--gsp-light);
+  color: var(--gsp-dark);
+}
+.gsp-chips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ---- Detail ---- */
+.gsp-detail,
+.gsp-vehicle,
+.gsp-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gsp-detail-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.gsp-detail-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.gsp-detail h3,
+.gsp-vehicle h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.gsp-detail h4,
+.gsp-settings h4 {
+  margin: 8px 0 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gsp-navy);
+}
+.gsp-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin: 0;
+  padding: 10px;
+  background: var(--gsp-light);
+  border-radius: 6px;
+}
+.gsp-kpis dt {
+  font-size: 11px;
+  color: var(--gsp-muted);
+}
+.gsp-kpis dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gsp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.gsp-table th,
+.gsp-table td {
+  padding: 5px 4px;
+  border-bottom: 1px solid var(--gsp-border);
+  text-align: left;
+  vertical-align: top;
+}
+.gsp-table th {
+  color: var(--gsp-muted);
+  font-weight: 500;
+  font-size: 11px;
+}
+.gsp-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.gsp-table tbody tr {
+  cursor: pointer;
+}
+.gsp-table tbody tr:hover {
+  background: var(--gsp-blue-soft);
+}
+.gsp-tr-active {
+  background: var(--gsp-blue-soft);
+  font-weight: 600;
+}
+.gsp-ellipsis {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gsp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gsp-field > span {
+  font-weight: 500;
+}
+.gsp-actions {
+  display: flex;
+  gap: 8px;
+}
+.gsp-settings p {
+  margin: 0;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "GPSFMS Shop Prices",
+  "supportEmail": "support@gpsfms.com",
+  "version": "1.0.0",
+  "items": [
+    {
+      "page": "map",
+      "noView": false,
+      "title": {
+        "en": "Shop Prices"
+      },
+      "mapScript": {
+        "src": "https://austin-gpsfms.github.io/shop-prices-map-addin/dist/shop-prices.js",
+        "style": "https://austin-gpsfms.github.io/shop-prices-map-addin/dist/shop-prices.css"
+      }
+    }
+  ],
+  "isSigned": false
+}

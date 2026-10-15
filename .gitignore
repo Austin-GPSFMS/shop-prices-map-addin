@@ -1,0 +1,9 @@
+node_modules/
+dist-harness/
+.DS_Store
+*.log
+.vite/
+.env
+.env.local
+.env.*.local
+tests/screenshots/
